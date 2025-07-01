@@ -27,8 +27,8 @@
   </nav>
   <main class="main">
     <dialog class="project-dialog">
-    <form class="project-form" action="#">
-      <fieldset class="form__header">
+    <form action="#" class="project-form">
+      <fieldset class="form__project-header">
         <div>
           <label for="form__project-name">Insert Project Name: </label>
           <input placeholder="Project Name" id="form__project-name" type="text" autocomplete="off" maxlength="25"
@@ -42,6 +42,29 @@
         <button class="form__project-cancel-btn" type="button">Cancel</button>
       </fieldset>
     </form>
+    </dialog>
+
+    <dialog class="todo-dialog">
+      <form action="#" class="todo-form">
+        <fieldset class="form__todo-header">
+          <label for="form__todo-title">Title: </label>
+          <input id="form__todo-title" type="text" maxlength="20" placeholder="Cool Thing" required>
+          <label for="form__todo-date">Due Date: </label>
+          <input id="form__todo-date" type="date" required>
+          <label for="form__todo-priority">Priority</label>
+          <select name="#" id="form__todo-priority" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <label for="form__todo-priority">Todo Description(Max 50 Characters)</label>
+          <input id="form__todo-description" type="text" placeholder="Do Cool Things" maxlength="50" required>
+        </fieldset>
+        <fieldset class="form__todo-buttons">
+          <button class="form__todo-submit-btn" type="submit">Submit</button>
+          <button class="form__todo-cancel-btn" type="button">Cancel</button>
+        </fieldset>
+      </form>
     </dialog>
     <!-- <div class="project__header">
       <h2 class="project__title">Getting Started</h2>

@@ -144,7 +144,7 @@ form input::placeholder {
   color: rgb(48, 48, 48);
 }
 
-.form__header {
+.form__project-header {
   display: flex;
   align-items: center;
   gap: 1em;
@@ -161,19 +161,30 @@ form input::placeholder {
 }
 
 .form__project-submit-btn,
-.form__project-cancel-btn {
+.form__project-cancel-btn,
+.form__todo-submit-btn,
+.form__todo-cancel-btn {
   color: white;
   padding: 5px 15px;
   border-radius: 6px;
 } 
 
-.form__project-submit-btn {
+.form__project-submit-btn,
+.form__todo-submit-btn {
   background-color: rgb(33, 78, 146);
   margin-right: 0.25em;
 }
 
-.form__project-cancel-btn {
-  background-color: rgb(27, 27, 27);
+.form__project-cancel-btn,
+.form__todo-cancel-btn {
+  background-color: rgb(158, 8, 45);
+}
+
+.form__todo-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1em;
 }
 
 /*Project*/
