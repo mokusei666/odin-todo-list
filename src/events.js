@@ -73,7 +73,18 @@ const events = (() => {
       todoForm.reset();
     })
   };
-  return { sidebarEvents, projectForm, addTodo }
+
+  const deleteProject = () => {
+    const deleteProjectButton = document.querySelector('.project__delete-btn');
+    deleteProjectButton.addEventListener('click', () => {
+      const id = deleteProjectButton.dataset.id;
+      const index = app.todoList.findIndex(project => project.projectId === id);
+      app.todoList.splice(index, 1);
+      document.querySelector('.project-container').innerHTML = '';
+      render.renderSidebar();
+    })
+  }
+  return { sidebarEvents, projectForm, addTodo, deleteProject }
 })();
 
 export { events }
