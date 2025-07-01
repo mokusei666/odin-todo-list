@@ -1,0 +1,15 @@
+/*General*/
+
+:root {
+  --odin-dark: rgb(16, 24, 40);
+}
+
+body {
+  background-color: var(--odin-dark);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
