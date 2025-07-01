@@ -12,7 +12,38 @@ const events = (() => {
       });
     });
   };
-  return { sidebarEvents }
+   const projectForm = () => {
+    const createProjectBtn = document.querySelector('.sidebar__create-project-btn');
+    createProjectBtn.addEventListener('click', () => {
+      const projectDialog = document.querySelector('.project-dialog');
+      projectDialog.showModal();
+    });
+    const projectFormSubmitBtn = document.querySelector('.form__project-submit-btn');
+    projectFormSubmitBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      const projectDialog = document.querySelector('.project-dialog');
+      const projectForm = document.querySelector('.project-form');
+      const projectName = document.getElementById('form__project-name').value;
+      if (!projectForm.checkValidity()) {
+        projectForm.reportValidity();
+        return;
+      } else {
+        app.createProject(projectName);
+        render.renderSidebar();
+        projectForm.reset();
+        projectDialog.close();
+        return;
+      };
+    });
+    const projectFormCancelBtn = document.querySelector('.form__project-cancel-btn');
+    projectFormCancelBtn.addEventListener('click', () => {
+      const projectDialog = document.querySelector('.project-dialog');
+      const projectForm = document.querySelector('.project-form');
+      projectDialog.close();
+      projectForm.reset();
+    })
+  }
+  return { sidebarEvents, projectForm }
 })();
 
 export { events }
