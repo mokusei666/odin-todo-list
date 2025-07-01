@@ -82,10 +82,6 @@ body {
   padding: 5px;
 }
 
-.sidebar__project {
-  margin-left: 1em;
-}
-
 .sidebar__project-title {
   font-size: 1.75rem;
   padding: 0.25rem 0.75rem;
