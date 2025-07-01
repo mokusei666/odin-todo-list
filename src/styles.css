@@ -20,10 +20,10 @@
 
 body {
   background-color: var(--odin-dark);
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 * {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   color: white;
@@ -112,6 +112,72 @@ body {
   padding: 1em;
 }
 
+/*Forms*/
+
+form {
+  background-color: white;
+  padding: 1em 2em;
+  width: 750px;
+  position: fixed;
+  top: 35%;
+  left: 40%;
+}
+
+form fieldset {
+  border: none;
+}
+
+form * {
+  color: black;
+  font-size: 1.5rem;
+}
+
+form input {
+  border-radius: 5px;
+  outline: none;
+  padding: 4px 15px;
+  border: none;
+  background-color: rgb(238, 238, 238);
+}
+
+form input::placeholder {
+  color: rgb(48, 48, 48);
+}
+
+.form__header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+#form__project-name {
+  width: max-content;
+}
+
+.form__char-limit {
+  font-size: 1rem;
+  color: rgb(37, 76, 150);
+}
+
+.form__project-submit-btn,
+.form__project-cancel-btn {
+  color: white;
+  padding: 5px 15px;
+  border-radius: 6px;
+} 
+
+.form__project-submit-btn {
+  background-color: rgb(33, 78, 146);
+  margin-right: 0.25em;
+}
+
+.form__project-cancel-btn {
+  background-color: rgb(27, 27, 27);
+}
+
+/*Project*/
+
 .project__header {
   display: flex;
   align-items: center;
@@ -175,15 +241,15 @@ body {
   color: rgb(54, 113, 161);
 }
 
-.todo-priority--low {
+.todo-priority--Low {
   color: green;
 }
 
-.todo-priority--medium {
+.todo-priority--Medium {
   color: #DAA520;
 }
 
-.todo-priority--high {
+.todo-priority--High {
   color: red;
 }
 
@@ -214,6 +280,10 @@ body {
 
 .todo-delete-icon {
   width: 12px;
+}
+
+.todo-content {
+  margin-bottom: 1em;
 }
 
 .todo-content__body {

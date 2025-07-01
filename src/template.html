@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odin To-do List</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__title">Odin Todo List</h1>
+  </header>
+  <nav class="nav">
+    <div class="sidebar__header">
+      <h2 class="sidebar__title">Your Projects:</h2>
+      <button class="sidebar__create-project-btn">
+        Create New Project
+        <img class="sidebar__icon" src="images/plus-solid.svg" alt="plus icon">
+      </button>
+    </div>
+    <ul class="sidebar__project">
+      <!-- <li class="sidebar__project-item">
+        <h3 class="sidebar__project-title sidebar__project--currently-active">Daily</h3>          
+      </li> -->
+    </ul>
+  </nav>
+  <main class="main">
+    <dialog class="project-dialog">
+    <form class="project-form" action="#">
+      <fieldset class="form__header">
+        <div>
+          <label for="form__project-name">Insert Project Name: </label>
+          <input placeholder="Project Name" id="form__project-name" type="text" autocomplete="off" maxlength="25"
+            required>
+        </div>
+        
+        <p class="form__char-limit">Max 25 Characters</p>
+      </fieldset>
+      <fieldset class="form__buttons">
+        <button class="form__project-submit-btn" type="submit">Submit</button>
+        <button class="form__project-cancel-btn" type="button">Cancel</button>
+      </fieldset>
+    </form>
+    </dialog>
+    <!-- <div class="project__header">
+      <h2 class="project__title">Getting Started</h2>
+      <button class="project__delete-btn">
+        Remove
+      </button>
+    </div>
+    <button class="project__add-todo-btn">
+      Add Todo
+      <img class="project__add-todo-icon" src="images/plus-solid.svg" alt="plus icon">
+    </button>
+    <div class="todo-content">
+      <div class="todo-content__header">
+        <div class="todo-content__header-left">
+          <h3 class="todo-title">Title: Add your first real task</h3>
+          <p class="todo-due-date">Due: <span class="todo-due-date-span">
+            2025-07-01
+          </span></p>
+          <p class="todo-priority">Priority: <span class="todo-priority--medium">Medium</span></p>
+        </div>
+        <div class="todo-content__header-right">
+          <button class="todo-edit-btn">
+            Edit
+            <img class="todo-edit-icon" src="images/pen-solid.svg" alt="pen icon">
+          </button>
+          <button class="todo-delete-btn">
+            <img class="todo-delete-icon" src="images/xmark-solid.svg" alt="xmark icon">
+          </button>
+        </div>
+      </div>
+      <div class="todo-content__body">
+        <div class="todo-content__body-left">
+          <p class="todo-description-header">Description:</p>
+          <p class="todo-description">
+            Let's get started!
+          </p>
+        </div>
+        <div class="todo-content__body-right">
+          <button class="todo-check-btn">Complete: 
+            <img class="todo-check-icon--true" src="images/check-solid.svg" alt="check icon">
+          </button>
+        </div>
+      </div>
+    </div> -->
+  </main>
+</body>
+
+</html>
