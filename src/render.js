@@ -25,9 +25,8 @@ const render = (() => {
   };
 
   const renderTodo = (index) => {
-    const main = document.querySelector('.main');
-    main.innerHTML = '';
-
+    const projectContainer = document.querySelector('.project-container');
+    projectContainer.innerHTML = '';
     const projectHeader = createElement('div', 'project__header');
 
     const projectTitle = createElement('h2', 'project__title', todoList[index].projectTitle);
@@ -45,7 +44,7 @@ const render = (() => {
 
     projectAddTodoBtn.appendChild(addTodoIcon);
 
-    main.append(projectHeader, projectAddTodoBtn);
+    projectContainer.append(projectHeader, projectAddTodoBtn);
 
     todoList[index].projectTodo.forEach(todo => {
 
@@ -118,7 +117,7 @@ const render = (() => {
 
       todoContent.append(todoContentHeader, todoContentBody)
 
-      main.appendChild(todoContent);
+      projectContainer.appendChild(todoContent);
     });
   };
   return { renderSidebar, renderTodo }
