@@ -4,7 +4,7 @@ const events = (() => {
   const sidebarEvents = () => {
     const sidebarProject = document.querySelectorAll('.sidebar__project-item');
     sidebarProject.forEach(project => {
-      project.addEventListener('click', () => { 
+      project.addEventListener('click', () => {
         const todoList = app.todoList;
         const id = project.dataset.id;
         const index = todoList.findIndex(project => project.projectId === id);
@@ -12,17 +12,17 @@ const events = (() => {
       });
     });
   };
-   const projectForm = () => {
+  const projectForm = () => {
+    const projectDialog = document.querySelector('.project-dialog');
+    const projectForm = document.querySelector('.project-form');
     const createProjectBtn = document.querySelector('.sidebar__create-project-btn');
     createProjectBtn.addEventListener('click', () => {
-      const projectDialog = document.querySelector('.project-dialog');
+
       projectDialog.showModal();
     });
     const projectFormSubmitBtn = document.querySelector('.form__project-submit-btn');
     projectFormSubmitBtn.addEventListener('click', (event) => {
       event.preventDefault();
-      const projectDialog = document.querySelector('.project-dialog');
-      const projectForm = document.querySelector('.project-form');
       const projectName = document.getElementById('form__project-name').value;
       if (!projectForm.checkValidity()) {
         projectForm.reportValidity();
@@ -37,13 +37,43 @@ const events = (() => {
     });
     const projectFormCancelBtn = document.querySelector('.form__project-cancel-btn');
     projectFormCancelBtn.addEventListener('click', () => {
-      const projectDialog = document.querySelector('.project-dialog');
-      const projectForm = document.querySelector('.project-form');
       projectDialog.close();
       projectForm.reset();
+    });
+  };
+  const addTodo = () => {
+    const todoDialog = document.querySelector('.todo-dialog');
+    const todoForm = document.querySelector('.todo-form');
+    const addTodoButton = document.querySelector('.project__add-todo-btn');
+    addTodoButton.addEventListener('click', (button) => {
+      todoDialog.showModal();   
+    });
+    const todoSubmitButton = document.querySelector('.form__todo-submit-btn');
+    todoSubmitButton.addEventListener('click', (event) => {
+      const id = addTodoButton.dataset.id;
+      const index = app.todoList.findIndex(project => project.projectId === id)
+      const todoTitle = document.getElementById('form__todo-title').value;
+      const todoDueDate = document.getElementById('form__todo-date').value;
+      const todoPriority = document.getElementById('form__todo-priority').value;
+      const todoDescription = document.getElementById('form__todo-description').value;
+      event.preventDefault();
+      if (!todoForm.checkValidity()) {
+        todoForm.reportValidity();
+        return;
+      } else {
+        app.createTodo(index, todoTitle, todoDueDate, todoPriority, todoDescription);
+        render.renderTodo(index);
+        todoDialog.close();
+        todoForm.reset();
+      }
+    });
+    const todoCancelButton = document.querySelector('.form__todo-cancel-btn');
+    todoCancelButton.addEventListener('click', () => {
+      todoDialog.close();
+      todoForm.reset();
     })
-  }
-  return { sidebarEvents, projectForm }
+  };
+  return { sidebarEvents, projectForm, addTodo }
 })();
 
 export { events }
