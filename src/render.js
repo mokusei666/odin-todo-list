@@ -1,5 +1,6 @@
 import { app } from "./app";
 import { createElement } from "./utility"
+import { events } from "./events";
 import plusImage from "./images/plus-solid.svg";
 import xmarkImage from "./images/xmark-solid.svg";
 import penImage from "./images/pen-solid.svg";
@@ -12,11 +13,14 @@ const render = (() => {
     sidebarUl.innerHTML = '';
     todoList.forEach(todo => {
       const sidebarLi = createElement('li', 'sidebar__project-item');
+      sidebarLi.dataset.id = todo.projectId;
 
       const projectTitle = createElement('h3', 'sidebar__project-title', todo.projectTitle);
 
       sidebarLi.appendChild(projectTitle);
       sidebarUl.appendChild(sidebarLi);
+      
+      events.sidebarEvents();
     });
   };
 
