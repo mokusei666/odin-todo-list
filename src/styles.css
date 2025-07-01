@@ -29,5 +29,19 @@ body {
   color: white;
 }
 
-/*Header*/
+/*Grid Layout*/
 
+body {
+  height: 100vh;
+  display: grid;
+  grid-template: 100px 1fr / 400px 1fr;
+}
+
+.header {
+  grid-column-start: 2;
+}
+
+.nav {
+  grid-row-start: 1;
+  grid-row-end: 3;
+} 
