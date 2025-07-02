@@ -105,7 +105,29 @@ const events = (() => {
     });
   };
 
-  return { sidebarEvents, projectForm, addTodo, deleteProject, deleteTodo }
+  const toggleCheck = () => {
+    const todoCheckButton = document.querySelectorAll('.todo-check-btn');
+    todoCheckButton.forEach(button => {
+      button.addEventListener('click', () => {
+        const todoId = button.dataset.id;
+        const todoContainer = button.closest('.todo-content');
+        const projectId = todoContainer.dataset.projectId;
+        const projectIndex = app.todoList.findIndex(project => project.projectId === projectId);
+        const todoIndex = app.todoList[projectIndex].projectTodo.findIndex(todo => todo.todoId === todoId);
+        if (app.todoList[projectIndex].projectTodo[todoIndex].todoCheck === false) {
+          app.todoList[projectIndex].projectTodo[todoIndex].todoCheck = true;
+          render.renderTodo(projectIndex);
+          return;
+        } else {
+          app.todoList[projectIndex].projectTodo[todoIndex].todoCheck = false;
+          render.renderTodo(projectIndex);
+        }
+      })
+    })
+
+  }
+
+  return { sidebarEvents, projectForm, addTodo, deleteProject, deleteTodo, toggleCheck }
 })();
 
 export { events }

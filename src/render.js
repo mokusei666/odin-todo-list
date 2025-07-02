@@ -5,6 +5,7 @@ import plusImage from "./images/plus-solid.svg";
 import xmarkImage from "./images/xmark-solid.svg";
 import penImage from "./images/pen-solid.svg";
 import checkImageFalse from "./images/minus-solid.svg";
+import checkImageTrue from "./images/check-solid.svg";
 
 const render = (() => {
   const todoList = app.todoList;
@@ -110,8 +111,13 @@ const render = (() => {
       const todoCheckFalseIcon = createElement('img', 'todo-check-icon--false');
       todoCheckFalseIcon.src = checkImageFalse;
 
-      todoCheckBtn.appendChild(todoCheckFalseIcon);
-
+      const todoCheckTrueIcon = createElement('img', 'todo-check-icon--true');
+      todoCheckTrueIcon.src = checkImageTrue;
+      if (todo.todoCheck === false) {
+        todoCheckBtn.appendChild(todoCheckFalseIcon);
+      } else {
+        todoCheckBtn.appendChild(todoCheckTrueIcon);
+      }
       todoContentBodyRight.append(todoCheckBtn)
 
       todoContentBody.append(todoContentBodyLeft, todoContentBodyRight);
@@ -123,6 +129,7 @@ const render = (() => {
     events.addTodo();
     events.deleteProject();
     events.deleteTodo();
+    events.toggleCheck();
   };
   return { renderSidebar, renderTodo }
 })();
