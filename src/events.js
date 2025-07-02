@@ -46,11 +46,12 @@ const events = (() => {
     const todoForm = document.querySelector('.todo-form');
     const addTodoButton = document.querySelector('.project__add-todo-btn');
     addTodoButton.addEventListener('click', (button) => {
-      todoDialog.showModal();   
+      todoDialog.showModal();
     });
     const todoSubmitButton = document.querySelector('.form__todo-submit-btn');
     todoSubmitButton.addEventListener('click', (event) => {
-      const id = addTodoButton.dataset.id;
+      const currentAddTodoButton = document.querySelector('.project__add-todo-btn');
+      const id = currentAddTodoButton.dataset.id;
       const index = app.todoList.findIndex(project => project.projectId === id)
       const todoTitle = document.getElementById('form__todo-title').value;
       const todoDueDate = document.getElementById('form__todo-date').value;
@@ -82,9 +83,26 @@ const events = (() => {
       app.todoList.splice(index, 1);
       document.querySelector('.project-container').innerHTML = '';
       render.renderSidebar();
-    })
-  }
-  return { sidebarEvents, projectForm, addTodo, deleteProject }
+    });
+  };
+
+  const deleteTodo = () => {
+    const deleteTodoButton = document.querySelectorAll('.todo-delete-btn');
+    deleteTodoButton.forEach(button => {
+      button.addEventListener('click', () => {
+        const deleteProjectButton = document.querySelector('.project__delete-btn');
+        const todoContainer = button.closest('.todo-content');
+        const projectId = todoContainer.dataset.projectId;
+        const projectIndex = app.todoList.findIndex(project => project.projectId === projectId)
+        const todoId = button.dataset.id;
+        const todoIndex = app.todoList[projectIndex].projectTodo.findIndex(todo => todo.todoId === todoId);
+        app.todoList[projectIndex].projectTodo.splice(todoIndex, 1);
+        render.renderTodo(projectIndex);
+      });
+    });
+  };
+
+  return { sidebarEvents, projectForm, addTodo, deleteProject, deleteTodo }
 })();
 
 export { events }

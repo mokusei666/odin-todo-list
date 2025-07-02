@@ -20,8 +20,8 @@ const render = (() => {
       sidebarLi.appendChild(projectTitle);
       sidebarUl.appendChild(sidebarLi);
       
-      events.sidebarEvents();
     });
+    events.sidebarEvents();
   };
 
   const renderTodo = (index) => {
@@ -49,6 +49,7 @@ const render = (() => {
     todoList[index].projectTodo.forEach(todo => {
 
       const todoContent = createElement('div', 'todo-content');
+      todoContent.dataset.projectId = todoList[index].projectId;
 
       const todoContentHeader = createElement('div', 'todo-content__header');
 
@@ -119,6 +120,9 @@ const render = (() => {
 
       projectContainer.appendChild(todoContent);
     });
+    events.addTodo();
+    events.deleteProject();
+    events.deleteTodo();
   };
   return { renderSidebar, renderTodo }
 })();
