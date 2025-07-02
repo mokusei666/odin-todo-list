@@ -75,6 +75,7 @@ const render = (() => {
       const todoContentHeaderRight = createElement('div', 'todo-content__header-right');
 
       const todoEditBtn = createElement('button', 'todo-edit-btn', 'Edit');
+      todoEditBtn.dataset.id = todo.todoId;
 
       const editTodoIcon = createElement('img', 'todo-edit-icon');
       editTodoIcon.src = penImage;
@@ -130,6 +131,7 @@ const render = (() => {
     events.deleteProject();
     events.deleteTodo();
     events.toggleCheck();
+    events.edit();
   };
   return { renderSidebar, renderTodo }
 })();
