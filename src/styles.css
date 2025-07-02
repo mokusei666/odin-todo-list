@@ -163,20 +163,24 @@ form input::placeholder {
 .form__project-submit-btn,
 .form__project-cancel-btn,
 .form__todo-submit-btn,
-.form__todo-cancel-btn {
+.form__todo-cancel-btn,
+.edit-form__todo-cancel-btn,
+.edit-form__todo-submit-btn {
   color: white;
   padding: 5px 15px;
   border-radius: 6px;
 } 
 
 .form__project-submit-btn,
-.form__todo-submit-btn {
+.form__todo-submit-btn,
+.edit-form__todo-submit-btn {
   background-color: rgb(33, 78, 146);
   margin-right: 0.25em;
 }
 
 .form__project-cancel-btn,
-.form__todo-cancel-btn {
+.form__todo-cancel-btn,
+.edit-form__todo-cancel-btn {
   background-color: rgb(158, 8, 45);
 }
 

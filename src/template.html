@@ -19,11 +19,7 @@
         <img class="sidebar__icon" src="images/plus-solid.svg" alt="plus icon">
       </button>
     </div>
-    <ul class="sidebar__project">
-      <!-- <li class="sidebar__project-item">
-        <h3 class="sidebar__project-title sidebar__project--currently-active">Daily</h3>          
-      </li> -->
-    </ul>
+    <ul class="sidebar__project"></ul>
   </nav>
   <main class="main">
     <dialog class="project-dialog">
@@ -63,6 +59,29 @@
         <fieldset class="form__todo-buttons">
           <button class="form__todo-submit-btn" type="submit">Submit</button>
           <button class="form__todo-cancel-btn" type="button">Cancel</button>
+        </fieldset>
+      </form>
+    </dialog>
+
+    <dialog class="todo-edit-dialog">
+      <form action="#" class="todo-edit-form">
+        <fieldset class="form__todo-header">
+          <label for="edit-form__todo-title">Title: </label>
+          <input id="edit-form__todo-title" type="text" maxlength="20" placeholder="Cool Thing" autocomplete="off" required>
+          <label for="edit-form__todo-date">Due Date: </label>
+          <input id="edit-form__todo-date" type="date" required>
+          <label for="edit-form__todo-priority">Priority</label>
+          <select name="#" id="edit-form__todo-priority" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <label for="edit-form__todo-description">Todo Description(Max 50 Characters)</label>
+          <input id="edit-form__todo-description" autocomplete="off" type="text" placeholder="Do Cool Things" maxlength="50" required>
+        </fieldset>
+        <fieldset class="form__todo-buttons">
+          <button class="edit-form__todo-submit-btn" type="submit">Edit</button>
+          <button class="edit-form__todo-cancel-btn" type="button">Cancel</button>
         </fieldset>
       </form>
     </dialog>
