@@ -158,7 +158,7 @@ const events = (() => {
             editForm.reportValidity();
           } else { 
             app.todoList[projectIndex].projectTodo[todoIndex].todoTitle =  editFormTitleInput.value;
-            app.todoList[projectIndex].projectTodo[todoIndex].todoDueDate =  editFormDateInput.value;
+            app.todoList[projectIndex].projectTodo[todoIndex].todoDueDate =  format(parseISO(editFormDateInput.value), 'MMMM dd, yyyy');
             app.todoList[projectIndex].projectTodo[todoIndex].todoPriority =  editFormPriorityInput.value;
             app.todoList[projectIndex].projectTodo[todoIndex].todoDescription =  editFormDescriptionInput.value;
             render.renderTodo(projectIndex);
