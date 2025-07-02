@@ -48,7 +48,7 @@
       <form action="#" class="todo-form">
         <fieldset class="form__todo-header">
           <label for="form__todo-title">Title: </label>
-          <input id="form__todo-title" type="text" maxlength="20" placeholder="Cool Thing" required>
+          <input id="form__todo-title" type="text" maxlength="20" placeholder="Cool Thing" autocomplete="off" required>
           <label for="form__todo-date">Due Date: </label>
           <input id="form__todo-date" type="date" required>
           <label for="form__todo-priority">Priority</label>
@@ -57,8 +57,8 @@
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </select>
-          <label for="form__todo-priority">Todo Description(Max 50 Characters)</label>
-          <input id="form__todo-description" type="text" placeholder="Do Cool Things" maxlength="50" required>
+          <label for="form__todo-description">Todo Description(Max 50 Characters)</label>
+          <input id="form__todo-description" autocomplete="off" type="text" placeholder="Do Cool Things" maxlength="50" required>
         </fieldset>
         <fieldset class="form__todo-buttons">
           <button class="form__todo-submit-btn" type="submit">Submit</button>
@@ -67,49 +67,6 @@
       </form>
     </dialog>
     <div class="project-container"></div>
-    <!-- <div class="project__header">
-      <h2 class="project__title">Getting Started</h2>
-      <button class="project__delete-btn">
-        Remove
-      </button>
-    </div>
-    <button class="project__add-todo-btn">
-      Add Todo
-      <img class="project__add-todo-icon" src="images/plus-solid.svg" alt="plus icon">
-    </button>
-    <div class="todo-content">
-      <div class="todo-content__header">
-        <div class="todo-content__header-left">
-          <h3 class="todo-title">Title: Add your first real task</h3>
-          <p class="todo-due-date">Due: <span class="todo-due-date-span">
-            2025-07-01
-          </span></p>
-          <p class="todo-priority">Priority: <span class="todo-priority--medium">Medium</span></p>
-        </div>
-        <div class="todo-content__header-right">
-          <button class="todo-edit-btn">
-            Edit
-            <img class="todo-edit-icon" src="images/pen-solid.svg" alt="pen icon">
-          </button>
-          <button class="todo-delete-btn">
-            <img class="todo-delete-icon" src="images/xmark-solid.svg" alt="xmark icon">
-          </button>
-        </div>
-      </div>
-      <div class="todo-content__body">
-        <div class="todo-content__body-left">
-          <p class="todo-description-header">Description:</p>
-          <p class="todo-description">
-            Let's get started!
-          </p>
-        </div>
-        <div class="todo-content__body-right">
-          <button class="todo-check-btn">Complete: 
-            <img class="todo-check-icon--true" src="images/check-solid.svg" alt="check icon">
-          </button>
-        </div>
-      </div>
-    </div> -->
   </main>
 </body>
 
