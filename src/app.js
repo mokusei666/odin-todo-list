@@ -2,7 +2,9 @@ import { format } from "date-fns";
 
 const app = (() => {
   const today = format(new Date(), 'MMMM dd, yyyy');
-  const todoList = [{
+
+  const savedTodoList = JSON.parse(localStorage.getItem('todoList'));
+  const todoList = savedTodoList.length > 0 ? savedTodoList : [{
     projectTitle: 'Getting Started',
     projectId: crypto.randomUUID(),
     projectTodo: [{
@@ -14,12 +16,15 @@ const app = (() => {
       todoId: crypto.randomUUID()
     }]
   }];
+ 
+
   const createProject = (title) => {
     todoList.push({
       projectTitle: title,
       projectId: crypto.randomUUID(),
       projectTodo: []
-    })
+    });
+    localStorage.setItem('todoList', JSON.stringify(app.todoList));
   }
 
   const createTodo = (index, title, dueDate, priority, description) => {
@@ -31,6 +36,7 @@ const app = (() => {
       todoCheck: false,
       todoId: crypto.randomUUID()
     });
+    localStorage.setItem('todoList', JSON.stringify(app.todoList));
   };
 
   return { todoList, createProject, createTodo }

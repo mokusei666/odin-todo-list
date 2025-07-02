@@ -86,6 +86,7 @@ const events = (() => {
       const index = app.todoList.findIndex(project => project.projectId === id);
       app.todoList.splice(index, 1);
       document.querySelector('.project-container').innerHTML = '';
+      localStorage.setItem('todoList', JSON.stringify(app.todoList));
       render.renderSidebar();
     });
   };
@@ -100,6 +101,7 @@ const events = (() => {
         const todoId = button.dataset.id;
         const todoIndex = app.todoList[projectIndex].projectTodo.findIndex(todo => todo.todoId === todoId);
         app.todoList[projectIndex].projectTodo.splice(todoIndex, 1);
+        localStorage.setItem('todoList', JSON.stringify(app.todoList));
         render.renderTodo(projectIndex);
       });
     });
@@ -117,14 +119,15 @@ const events = (() => {
         if (app.todoList[projectIndex].projectTodo[todoIndex].todoCheck === false) {
           app.todoList[projectIndex].projectTodo[todoIndex].todoCheck = true;
           render.renderTodo(projectIndex);
+          localStorage.setItem('todoList', JSON.stringify(app.todoList));
           return;
         } else {
           app.todoList[projectIndex].projectTodo[todoIndex].todoCheck = false;
           render.renderTodo(projectIndex);
+          localStorage.setItem('todoList', JSON.stringify(app.todoList));
         }
       })
     })
-
   }
 
   return { sidebarEvents, projectForm, addTodo, deleteProject, deleteTodo, toggleCheck }
