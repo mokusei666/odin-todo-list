@@ -164,6 +164,7 @@ const events = (() => {
             render.renderTodo(projectIndex);
             editDialog.close();
             editForm.reset();
+            localStorage.setItem('todoList', JSON.stringify(app.todoList));
           }
         });
         const todoCancelEditButton = document.querySelector('.edit-form__todo-cancel-btn');
