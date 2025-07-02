@@ -1,5 +1,7 @@
 import { app } from "./app";
 import { render } from "./render";
+import { parseISO, format } from "date-fns";
+
 const events = (() => {
   const sidebarEvents = () => {
     const sidebarProject = document.querySelectorAll('.sidebar__project-item');
@@ -62,7 +64,9 @@ const events = (() => {
         todoForm.reportValidity();
         return;
       } else {
-        app.createTodo(index, todoTitle, todoDueDate, todoPriority, todoDescription);
+        const parsedDate = parseISO(todoDueDate);
+        const formattedDate = format(parsedDate, 'MMMM dd, yyyy');
+        app.createTodo(index, todoTitle, formattedDate, todoPriority, todoDescription);
         render.renderTodo(index);
         todoDialog.close();
         todoForm.reset();
@@ -90,7 +94,6 @@ const events = (() => {
     const deleteTodoButton = document.querySelectorAll('.todo-delete-btn');
     deleteTodoButton.forEach(button => {
       button.addEventListener('click', () => {
-        const deleteProjectButton = document.querySelector('.project__delete-btn');
         const todoContainer = button.closest('.todo-content');
         const projectId = todoContainer.dataset.projectId;
         const projectIndex = app.todoList.findIndex(project => project.projectId === projectId)

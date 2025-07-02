@@ -1,10 +1,13 @@
+import { format } from "date-fns";
+
 const app = (() => {
+  const today = format(new Date(), 'MMMM dd, yyyy');
   const todoList = [{
     projectTitle: 'Getting Started',
     projectId: crypto.randomUUID(),
     projectTodo: [{
       todoTitle: 'Add your first real task',
-      todoDueDate: new Date().toISOString().split('T')[0],
+      todoDueDate: today,
       todoPriority: 'Medium',
       todoDescription: 'Let\'s get started!',
       todoCheck: false,
