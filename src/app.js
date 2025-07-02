@@ -4,7 +4,7 @@ const app = (() => {
   const today = format(new Date(), 'MMMM dd, yyyy');
 
   const savedTodoList = JSON.parse(localStorage.getItem('todoList'));
-  const todoList = savedTodoList.length > 0 ? savedTodoList : [{
+  const todoList = savedTodoList && savedTodoList.length > 0 ? savedTodoList : [{
     projectTitle: 'Getting Started',
     projectId: crypto.randomUUID(),
     projectTodo: [{
