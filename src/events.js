@@ -76,7 +76,7 @@ const events = (() => {
     todoCancelButton.addEventListener('click', () => {
       todoDialog.close();
       todoForm.reset();
-    })
+    });
   };
 
   const deleteProject = () => {
@@ -126,11 +126,55 @@ const events = (() => {
           render.renderTodo(projectIndex);
           localStorage.setItem('todoList', JSON.stringify(app.todoList));
         }
-      })
-    })
-  }
+      });
+    });
+  };
 
-  return { sidebarEvents, projectForm, addTodo, deleteProject, deleteTodo, toggleCheck }
+  const edit = () => {
+    const todoEditButton = document.querySelectorAll('.todo-edit-btn');
+    todoEditButton.forEach(button => {
+      button.addEventListener('click', () => {
+        const todoContent = button.closest('.todo-content');
+        const todoTitle = todoContent.querySelector('.todo-title');
+        const todoDescription = todoContent.querySelector('.todo-description');
+        const projectId = todoContent.dataset.projectId;
+        const projectIndex = app.todoList.findIndex(project => project.projectId === projectId);
+        const todoId = button.dataset.id;
+        const todoIndex = app.todoList[projectIndex].projectTodo.findIndex(todo => todo.todoId === todoId);
+
+        const editDialog = document.querySelector('.todo-edit-dialog');
+        const editForm = document.querySelector('.todo-edit-form');
+        editDialog.showModal();
+        const editFormTitleInput = document.getElementById('edit-form__todo-title');
+        const editFormDateInput = document.getElementById('edit-form__todo-date');
+        const editFormPriorityInput = document.getElementById('edit-form__todo-priority');
+        const editFormDescriptionInput = document.getElementById('edit-form__todo-description');
+        const todoSubmitEditButton = document.querySelector('.edit-form__todo-submit-btn');
+        editFormTitleInput.value = todoTitle.innerText;
+        editFormDescriptionInput.value = todoDescription.innerText;
+        todoSubmitEditButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          if (!editForm.checkValidity()) {
+            editForm.reportValidity();
+          } else { 
+            app.todoList[projectIndex].projectTodo[todoIndex].todoTitle =  editFormTitleInput.value;
+            app.todoList[projectIndex].projectTodo[todoIndex].todoDueDate =  editFormDateInput.value;
+            app.todoList[projectIndex].projectTodo[todoIndex].todoPriority =  editFormPriorityInput.value;
+            app.todoList[projectIndex].projectTodo[todoIndex].todoDescription =  editFormDescriptionInput.value;
+            render.renderTodo(projectIndex);
+            editDialog.close();
+            editForm.reset();
+          }
+        });
+        const todoCancelEditButton = document.querySelector('.edit-form__todo-cancel-btn');
+        todoCancelEditButton.addEventListener('click', () => {
+          editDialog.close();
+          editForm.reset();
+        })
+      });
+    });
+  }
+  return { sidebarEvents, projectForm, addTodo, deleteProject, deleteTodo, toggleCheck, edit }
 })();
 
 export { events }
