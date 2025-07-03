@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odin To-do List</title>
+<script defer src="main.js"></script></head>
+
+<body>
+  <header class="header">
+    <h1 class="header__title">Odin Todo List</h1>
+  </header>
+  <nav class="nav">
+    <div class="sidebar__header">
+      <h2 class="sidebar__title">Your Projects:</h2>
+      <button class="sidebar__create-project-btn">
+        Create New Project
+        <img class="sidebar__icon" src="b7a481494de8ef935226.svg" alt="plus icon">
+      </button>
+    </div>
+    <ul class="sidebar__project"></ul>
+  </nav>
+  <main class="main">
+    <dialog class="project-dialog">
+    <form action="#" class="project-form">
+      <fieldset class="form__project-header">
+        <div>
+          <label for="form__project-name">Insert Project Name: </label>
+          <input placeholder="Project Name" id="form__project-name" type="text" autocomplete="off" maxlength="25"
+            required>
+        </div>
+        
+        <p class="form__char-limit">Max 25 Characters</p>
+      </fieldset>
+      <fieldset class="form__buttons">
+        <button class="form__project-submit-btn" type="submit">Submit</button>
+        <button class="form__project-cancel-btn" type="button">Cancel</button>
+      </fieldset>
+    </form>
+    </dialog>
+
+    <dialog class="todo-dialog">
+      <form action="#" class="todo-form">
+        <fieldset class="form__todo-header">
+          <label for="form__todo-title">Title: </label>
+          <input id="form__todo-title" type="text" maxlength="20" placeholder="Cool Thing" autocomplete="off" required>
+          <label for="form__todo-date">Due Date: </label>
+          <input id="form__todo-date" type="date" required>
+          <label for="form__todo-priority">Priority</label>
+          <select name="#" id="form__todo-priority" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <label for="form__todo-description">Todo Description(Max 50 Characters)</label>
+          <input id="form__todo-description" autocomplete="off" type="text" placeholder="Do Cool Things" maxlength="50" required>
+        </fieldset>
+        <fieldset class="form__todo-buttons">
+          <button class="form__todo-submit-btn" type="submit">Submit</button>
+          <button class="form__todo-cancel-btn" type="button">Cancel</button>
+        </fieldset>
+      </form>
+    </dialog>
+
+    <dialog class="todo-edit-dialog">
+      <form action="#" class="todo-edit-form">
+        <fieldset class="form__todo-header">
+          <label for="edit-form__todo-title">Title: </label>
+          <input id="edit-form__todo-title" type="text" maxlength="20" placeholder="Cool Thing" autocomplete="off" required>
+          <label for="edit-form__todo-date">Due Date: </label>
+          <input id="edit-form__todo-date" type="date" required>
+          <label for="edit-form__todo-priority">Priority</label>
+          <select name="#" id="edit-form__todo-priority" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <label for="edit-form__todo-description">Todo Description(Max 50 Characters)</label>
+          <input id="edit-form__todo-description" autocomplete="off" type="text" placeholder="Do Cool Things" maxlength="50" required>
+        </fieldset>
+        <fieldset class="form__todo-buttons">
+          <button class="edit-form__todo-submit-btn" type="submit">Edit</button>
+          <button class="edit-form__todo-cancel-btn" type="button">Cancel</button>
+        </fieldset>
+      </form>
+    </dialog>
+    <div class="project-container"></div>
+  </main>
+</body>
+
+</html>
